@@ -27,7 +27,6 @@ import { bgThemeContext } from '../../../App';
 import { useSelector } from 'react-redux';
 
 function Menu({ open, close }) {
-    console.log('Menu render');
 
     const isUser = useSelector(state => state.isUser);
 

@@ -66,8 +66,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 function Profile({ open, close }) {
 
-    console.log('Profile render');
-
     const user = useSelector(state => state.dataUser);
 
     const bgTheme = useContext(bgThemeContext);
