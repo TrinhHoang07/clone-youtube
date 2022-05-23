@@ -1,0 +1,47 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+.subscribe {
+    padding-top: 55px;
+    margin-left: 74px;
+    height: 100vh;
+
+    @include mobile {
+        margin-left: 0;
+    }
+
+    .container {
+        display: flex;
+        height: 100%;
+
+        .content-subscribe {
+            margin: auto;
+            text-align: center;
+
+            .heading {
+                font-size: 24px;
+                font-weight: 400;
+                font-family: "Roboto", "Arial", sans-serif;
+                margin: 16px 0;
+            }
+
+            .description {
+                font-size: 14px;
+                font-family: "Roboto", "Arial", sans-serif;
+                margin-bottom: 24px;
+            }
+        }
+    }
+}

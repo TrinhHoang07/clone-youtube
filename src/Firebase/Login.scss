@@ -1,0 +1,12 @@
+.login-box {
+    background-image: linear-gradient(#dc2424, #4a569d);
+
+    .login-button {
+        background-image: linear-gradient(#ff512f, #dd2476);
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}

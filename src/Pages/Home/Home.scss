@@ -1,0 +1,109 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+.home {
+    padding-top: 55px;
+    padding-left: 74px;
+
+    @include mobile {
+        padding-left: 0;
+    }
+
+    .header-toolbar {
+        width: calc(100% - 74px);
+        overflow-x: auto;
+        padding: 14px;
+        border-bottom: 1px solid #d7d7d7;
+        position: fixed;
+        z-index: 997;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        @include tablet {
+            width: 100%;
+        }
+
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .toolbar-link {
+            text-decoration: none;
+
+            .MuiChip-label.MuiChip-labelMedium.css-6od3lo-MuiChip-label {
+                cursor: pointer;
+
+            }
+        }
+    }
+
+    .video {
+        .playing-player {
+            @include tablet {
+                width: 639px;
+                height: 360px;
+            }
+
+            @include mobile {
+                width: 492px;
+                height: 277px;
+            }
+        }
+
+        @include mobile {
+            padding-bottom: 48px;
+        }
+
+        .wrapper-video {
+            @include tablet {
+                max-width: 50%;
+                flex-basis: 50%;
+            }
+
+            .video-media {
+                @include tablet {
+                    height: 188px;
+                }
+
+                @include mobile {
+                    height: 200px;
+                }
+            }
+
+            .video-header {
+                align-items: unset;
+
+                // margin-right: 8px;
+                .css-1ssile9-MuiCardHeader-avatar {
+                    margin-right: 12px;
+                }
+
+                .MuiCardHeader-action.css-sgoict-MuiCardHeader-action {
+                    margin: 0;
+                }
+
+                .MuiTypography-root.MuiTypography-body2.MuiCardHeader-title.css-et1ao3-MuiTypography-root {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}

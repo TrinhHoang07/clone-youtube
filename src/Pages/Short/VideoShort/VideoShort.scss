@@ -1,0 +1,187 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+.video-short {
+    padding-top: 24px;
+    display: flex;
+    scroll-snap-align: start;
+
+    @include mobile {
+        padding-top: 0;
+        height: 100vh;
+    }
+
+    .container {
+        margin: auto;
+
+        .content-short {
+            display: flex;
+
+            @include mobile {
+                display: unset;
+            }
+
+            .video-playing {
+                position: relative;
+                width: 285px;
+                height: 510px;
+
+                @include mobile {
+                    position: relative;
+                    width: 100%;
+                    height: 100vh;
+                }
+
+                .rose-play {
+                    border-radius: 8px;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                }
+
+                .controls {
+                    position: absolute;
+                    top: 5%;
+                    left: 14px;
+                    right: 14px;
+                    display: flex;
+                    color: #fff;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    @include mobile {
+                        display: none;
+                    }
+
+                }
+
+                .info {
+                    position: absolute;
+                    bottom: 16px;
+                    left: 14px;
+                    right: 14px;
+
+                    @include mobile {
+                        bottom: 90px;
+                    }
+
+                    .title {
+                        font-size: 20px;
+                        color: #fff;
+                        font-weight: 400;
+                    }
+
+                    .content-info {
+                        margin-top: 8px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .user-video {
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+
+                            .user-avatar {
+                                width: 42px;
+                                height: 42px;
+                                border-radius: 50%;
+                            }
+
+                            .text-info {
+                                margin-left: 8px;
+                                color: #fff;
+                                font-size: 18px;
+                                font-weight: bold;
+                            }
+                        }
+
+                        .submit {
+                            border: none;
+                            padding: 10px 16px;
+                            font-size: 14px;
+                            border-radius: 4px;
+                            text-transform: uppercase;
+                            background-color: #c00;
+                            color: #fff;
+                            font-weight: 500;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+            }
+
+            .video-actions {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin-left: 16px;
+
+                @include mobile {
+                    position: absolute;
+                    top: 40%;
+                    right: 2%;
+                }
+
+                .menu {
+                    @include mobile {
+                        display: none;
+                    }
+
+                    .color-mobile {
+                        @include mobile {
+                            color: #fff;
+
+                        }
+                    }
+                }
+
+                .des {
+                    display: flex;
+                    flex-direction: column;
+
+                    .color-mobile {
+                        @include mobile {
+                            color: #fff;
+
+                        }
+                    }
+
+                    .text-mobile {
+                        @include mobile {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            .up-down {
+                position: fixed;
+                bottom: 16px;
+                top: 71px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                right: 16px;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+}

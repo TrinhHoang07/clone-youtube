@@ -1,0 +1,35 @@
+.add-video-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    display: flex;
+
+    .addvideoform-container {
+        width: 75%;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 6px;
+
+        .addvideo-form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .addvideo-form-content {
+            text-align: center;
+        }
+
+        .addvideo-form-footer {
+            margin-top: 48px;
+            text-align: center;
+            padding-bottom: 16px;
+        }
+    }
+}

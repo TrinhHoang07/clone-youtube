@@ -1,0 +1,83 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+.header-channel {
+    margin-top: 55px;
+    margin-left: 74px;
+
+    @include mobile {
+        margin-left: 0;
+        padding-left: 24px;
+        padding-top: 16px;
+    }
+
+    .container {
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 60px 4px;
+
+            @include mobile {
+                padding: 0;
+                display: unset;
+            }
+
+            .box1 {
+                display: flex;
+                align-items: center;
+
+                @include mobile {
+                    align-items: unset;
+                }
+
+            }
+
+            .btn-group {
+                @include mobile {
+                    margin-left: 104px;
+                    margin-top: -14px;
+                }
+            }
+        }
+
+        .navbar {
+            padding: 0px 60px 4px;
+
+            @include tablet {
+                padding-right: 0;
+            }
+
+            @include mobile {
+                padding: 0;
+                padding-top: 14px;
+                margin-left: -16px;
+            }
+
+            .search-box {
+                @include mobile {
+                    display: none;
+                }
+
+                .input-search {
+                    @include tablet {
+                        width: 180px;
+                        margin-right: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

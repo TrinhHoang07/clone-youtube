@@ -1,0 +1,465 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background-color: #fff;
+    border-bottom: 1px solid #d7d7d7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+
+    .left-bar {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        position: relative;
+
+        .list-menu-wrapper {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.35);
+            z-index: 999;
+
+            .container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+
+                .list-menu {
+                    position: absolute;
+                    left: 0;
+                    background-color: #fff;
+                    width: 256px;
+
+
+                    .list-menu-header {
+                        height: 55px;
+                        display: flex;
+                        align-items: center;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                    }
+
+                    .list-menu-contents {
+                        margin-top: 55px;
+                        height: calc(100vh - 55px);
+                        overflow-y: auto;
+                        margin-right: 4px;
+                        padding-right: 4px;
+
+                        &::-webkit-scrollbar {
+                            width: 8px;
+                            display: none;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 8px;
+                            background: #999;
+                        }
+
+                        &:hover {
+                            &::-webkit-scrollbar {
+                                display: block;
+                            }
+                        }
+
+                        .list-menu-content {
+                            .btn-login {
+                                border-radius: 2px;
+                                min-width: 136px;
+                                padding: 6px 12px;
+
+                                &:hover {
+                                    background-color: unset;
+                                    border: 1px solid rgba(25, 118, 210, 0.5);
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .nav-subheader {
+                                position: static;
+                            }
+                        }
+                    }
+
+                    .list-menu-footer {
+                        .footer-a {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .left-bar-wrapper {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            .link-logo {
+                text-decoration: none;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                @include tablet {
+                    margin-right: 8px;
+                }
+
+                .logo-ytb {
+                    @include tablet {
+                        margin-left: 0;
+                    }
+
+                    @include mobile {
+                        margin-left: 0;
+                    }
+                }
+
+                .MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
+                    font-size: 24px;
+                    font-weight: bold;
+                    letter-spacing: -1px;
+                    // color: #000;
+                }
+
+                .logo-header {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .center-bar {
+        flex: 2;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        @include mobile {
+            justify-content: flex-end;
+        }
+
+        .container-search {
+            height: 75%;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &:focus-within {
+                border: 1px solid #1c62b9;
+            }
+
+            &:focus-within .center-search {
+                border-left: none !important;
+            }
+
+            &:focus-within .icon-focus-search {
+                visibility: visible;
+            }
+
+            .icon-focus-search {
+                visibility: hidden;
+                height: 100%;
+            }
+
+            .result-search {
+                position: absolute;
+                top: 98%;
+                left: 0;
+                right: 0;
+                max-height: 500px;
+                overflow-y: auto;
+                background-color: #fff;
+                box-shadow: 0px 1px 1px 0px #d9d9d9;
+
+                .text-result {
+                    display: flex;
+                    align-items: center;
+                    font-family: "Roboto", "Arial", sans-serif;
+                    font-size: 15px;
+                    padding: 8px;
+
+                    &:hover {
+                        background-color: #e4e4e4;
+                    }
+                }
+            }
+
+            .center-search {
+                height: 100%;
+                width: 100%;
+                border: 1px solid #d7d7d7;
+                outline: none;
+                font-size: 16px;
+                padding-left: 8px;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+        }
+
+
+        .icon-search {
+            width: 80px;
+            text-align: center;
+            border: 1px solid #d7d7d7;
+            // border-left: none;
+            height: 75%;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            line-height: 70%;
+            display: inline-block;
+            background-color: #f8f8f8;
+
+            &:focus-within {
+                border: 1px solid blue;
+            }
+
+            @include mobile {
+                margin-right: 8px;
+                border: none;
+                background-color: transparent !important;
+                width: unset;
+
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                // background-color: #f0f0f0;
+            }
+        }
+
+        .icon-microphone {
+            // position: static;
+
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+
+    .right-bar {
+        flex: 1;
+        text-align: right;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .icon-apps,
+        .icon-setting {
+            position: relative;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        .apps-youtube {
+            position: absolute;
+            top: calc(55px - 10px);
+            right: 10px;
+            background-color: #fff;
+            border-left: 1px solid #d7d7d7;
+            border-bottom: 1px solid #d7d7d7;
+
+            .app-text {
+                margin-left: -14px;
+
+                .MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .settings {
+            width: 290px;
+            position: absolute;
+            top: calc(55px - 8px);
+            // background-color: #fff;
+            right: 160px;
+            border: 1px solid #d7d7d7;
+            border-top: none;
+
+            .app-text {
+                margin-left: -14px;
+
+                .MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+
+            .diffe {
+                .MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .profile {
+            width: 312px;
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            // background-color: #fff;
+            right: 64px;
+            border: 1px solid #d7d7d7;
+            border-top: none;
+            overflow-y: auto;
+
+            &:hover {
+                &::-webkit-scrollbar {
+                    visibility: visible;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #888;
+                    border-radius: 8px;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                width: 8px;
+                border-radius: 8px;
+                visibility: hidden;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 8px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #fff;
+                border-radius: 8px;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: #555;
+                border-radius: 8px;
+            }
+
+            .app-text {
+                margin-left: -14px;
+
+                .MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+
+            .diffe {
+                .MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .notify {
+            position: absolute;
+            width: 479px;
+            height: 640px;
+            right: 100px;
+            top: 0;
+            border: 1px solid #e8e8e8;
+
+            .header-notify {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 3px 14px;
+
+                .title {
+                    font-size: 16px;
+                    font-family: "Roboto", "Arial", sans-serif;
+                }
+            }
+
+            .content-notify {
+                display: flex;
+                height: 100%;
+
+                .container {
+                    margin: auto;
+                    text-align: center;
+                    transform: translateY(-50%);
+
+                    .heading {
+                        font-size: 16px;
+                        font-family: "Roboto", "Arial", sans-serif;
+                        font-weight: 500;
+                        margin-top: 16px;
+                        margin-bottom: 8px;
+                    }
+
+                    .description {
+                        font-family: "Roboto", "Arial", sans-serif;
+                        font-size: 15px;
+                        width: 272px;
+                    }
+                }
+            }
+        }
+
+        .btn-login {
+            height: 70%;
+            border-radius: 2px;
+            min-width: 136px;
+
+            @include tablet {
+                margin-right: 8px;
+            }
+
+            @include mobile {
+                margin-right: 8px;
+            }
+
+            &:hover {
+                background-color: unset;
+                // border: 1px solid rgba(25, 118, 210, 0.5);
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+.wrapper-short {
+    margin-left: 74px;
+    margin-top: 55px;
+    height: 100%;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include mobile {
+        margin-left: 0;
+        margin-top: 24px;
+
+        &:last-child {
+            padding-bottom: 58px;
+        }
+    }
+}

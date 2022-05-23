@@ -1,0 +1,126 @@
+$mobile-width: 739px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+.history {
+    padding-top: 55px;
+    margin-left: 74px;
+    height: 100vh;
+
+    @include mobile {
+        margin-left: 0;
+    }
+
+    @include tablet {
+        padding-top: 0;
+        margin-top: 55px;
+    }
+
+    .container {
+        display: flex;
+        height: 100%;
+
+        @include tablet {
+            flex-direction: column-reverse;
+            height: unset;
+        }
+
+        @include mobile {
+            flex-direction: column-reverse;
+            height: unset;
+        }
+
+        .content-history {
+            margin: auto;
+            text-align: center;
+
+            @include tablet {
+                background-color: #f2f2f2 !important;
+                padding-bottom: 32px;
+                width: 100%;
+            }
+
+            @include mobile {
+                background-color: #f2f2f2 !important;
+                padding-bottom: 96px;
+                width: 100%;
+            }
+
+            .heading {
+                font-size: 24px;
+                font-weight: 400;
+                font-family: "Roboto", "Arial", sans-serif;
+                margin: 16px 0;
+            }
+
+            .description {
+                font-size: 14px;
+                font-family: "Roboto", "Arial", sans-serif;
+                margin-bottom: 24px;
+            }
+        }
+
+        .content-setting {
+            width: 444px;
+
+            @include tablet {
+                margin: auto;
+                width: 100%;
+                background-color: #f2f2f2 !important;
+            }
+
+            @include mobile {
+                margin: auto;
+                width: 100%;
+                background-color: #f2f2f2 !important;
+            }
+
+            .des-setting {
+                padding-top: 24px;
+                margin-left: 28px;
+
+                @include tablet {
+                    margin-right: 28px;
+                }
+
+                .heading-setting {
+                    font-size: 16px;
+                    font-family: "Roboto", "Arial", sans-serif;
+                    font-weight: 400;
+                    margin-left: 14px;
+                }
+
+                a.link-setting {
+                    margin-left: 14px;
+                    text-decoration: none;
+                    font-family: "Roboto", "Arial", sans-serif;
+                    font-size: 15px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
+            .buttons {
+                margin-left: 28px;
+                display: flex;
+                flex-direction: column;
+
+                @include tablet {
+                    margin-right: 28px;
+                }
+            }
+        }
+    }
+}
