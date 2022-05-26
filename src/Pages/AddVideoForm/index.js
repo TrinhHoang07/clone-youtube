@@ -4,12 +4,32 @@ import CloseIcon from '@mui/icons-material/Close';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import './AddVideoForm.scss';
 import { bgThemeContext } from '../../App';
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getVideoUser } from '../../redux/actions';
+
 const Input = styled('input')({
     display: 'none',
 });
 
 function AddVideoForm() {
+
+    const dispatch = useDispatch();
+
+    const [video, setVideo] = useState();
+    const handleAddVideo = (e) => {
+        const file = e.target.files[0];
+        file.hideVideo = URL.createObjectURL(file);
+        setVideo(file);
+        dispatch(getVideoUser(file));
+        handleCloseAddVideo();
+    }
+
+    // useEffect(() => {
+    //     return () => {
+    //         video && URL.revokeObjectURL(video.hideVideo);
+    //     }
+    // }, [video])
 
     const theme = useContext(bgThemeContext);
     const { handleCloseAddVideo } = theme;
@@ -38,7 +58,7 @@ function AddVideoForm() {
                         <Typography sx={{ fontSize: 18, mb: 0.5, fontWeight: 400 }} component="h5">Tải video lên</Typography>
                         <Typography sx={{ fontSize: 14, mb: 3 }} component="p">Các video của bạn sẽ ở chế độ riêng tư cho đến khi bạn xuất bản.</Typography>
                         <label htmlFor="contained-button-file">
-                            <Input id="contained-button-file" multiple type="file" />
+                            <Input id="contained-button-file" onChange={handleAddVideo} type="file" />
                             <Button sx={{ borderRadius: '2px' }} variant="contained" component="span">
                                 Chọn tệp
                             </Button>

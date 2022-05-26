@@ -9,6 +9,7 @@ export { default as HomeChannel } from './YourChannel/HomeChannel';
 export { default as Layout } from './YourChannel/Layout';
 export { default as VideoChannel } from './YourChannel/VideoChannel';
 export { default as Channel } from './YourChannel/Channel';
+export { default as UserVideo } from './YourChannel/UserVideo';
 export { default as About } from './YourChannel/About';
 export { default as UserSubscribe } from './UserSubscribe';
 export { default as UserLibrary } from './UserLibrary';

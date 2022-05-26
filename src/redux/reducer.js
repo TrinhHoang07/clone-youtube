@@ -4,6 +4,7 @@ const initialState = {
     disCover: [],
     isUser: false,
     dataUser: {},
+    videoUser: []
 }
 
 function reducer(state = initialState, action) {
@@ -30,6 +31,11 @@ function reducer(state = initialState, action) {
                 ...state,
                 isUser: true,
                 dataUser: { ...action.payload },
+            }
+        case 'GET_VIDEO_USER':
+            return {
+                ...state,
+                videoUser: [...state.videoUser, { ...action.payload }],
             }
         default:
             return state;

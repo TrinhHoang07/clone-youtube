@@ -1,0 +1,36 @@
+.user-video {
+    padding: 0 64px;
+    padding-bottom: 100px;
+    padding-top: 16px;
+    padding-left: 138px;
+
+    .img-user-video {
+        height: 302px;
+    }
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        font-family: "Roboto", "Arial", sans-serif;
+
+        .view-video {
+            margin-top: 4px;
+            font-size: 12px;
+        }
+
+        .option {
+            position: relative;
+
+            .children-option {
+                position: absolute;
+                top: 32px;
+                width: 188px;
+                right: 0;
+                border-radius: 6px;
+                box-shadow: 0 0 10px #d7d7d7;
+            }
+        }
+    }
+}

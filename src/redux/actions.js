@@ -25,3 +25,10 @@ export const getDataUser = (payload) => {
         payload,
     };
 }
+
+export const getVideoUser = (payload) => {
+    return {
+        type: 'GET_VIDEO_USER',
+        payload,
+    };
+}
