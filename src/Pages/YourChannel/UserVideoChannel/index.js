@@ -1,8 +1,9 @@
-import { ClickAwayListener, Grid, IconButton, Typography } from "@mui/material";
+import { Button, ClickAwayListener, Grid, IconButton, Popover, Typography } from "@mui/material";
 import video from '../../../videotiktok/myvideo.png';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FeedbackOutlinedIcon from '@mui/icons-material/FeedbackOutlined';
+import SortIcon from '@mui/icons-material/Sort';
 import './UserVideo.scss';
 import { useState, useContext } from "react";
 import { bgThemeContext } from '../../../App';
@@ -19,6 +20,15 @@ function UserVideo() {
     const theme = useContext(bgThemeContext);
     const { bgColor, color } = theme;
     const [open, setOpen] = useState(null);
+    const [openOpt, setOpenOpt] = useState(false);
+
+    const handleOpenOpt = () => {
+        setOpenOpt(true);
+    }
+
+    const handleCloseOpt = () => {
+        setOpenOpt(false);
+    }
 
     const handleOpen = (item) => {
         setOpen(item);
@@ -37,11 +47,34 @@ function UserVideo() {
 
     return (
         <div className="user-video" style={{ backgroundColor: bgColor }}>
+            <header style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Typography component="h3" sx={{ color: color }}>
+                    Video tải lên
+                </Typography>
+                <div style={{ position: 'relative' }}>
+                    <Button onClick={handleOpenOpt} sx={{ color: color }} startIcon={<SortIcon sx={{ color: color }} />}>Sắp xếp theo</Button>
+                    {openOpt && (<ClickAwayListener onClickAway={handleCloseOpt}>
+                        <div className="children-option" style={{ backgroundColor: '#ffffff', position: 'absolute', right: 0, top: '100%', width: '250px' }}>
+                            <div className="content-option" style={{ padding: '8px 0' }}>
+                                <Typography sx={{ ":hover": { backgroundColor: '#e8e8e8' }, color: '#333', display: 'flex', padding: '8px 0', alignItems: 'center', pl: '14px' }} component="p">
+                                    Phổ biến nhất
+                                </Typography>
+                                <Typography sx={{ ":hover": { backgroundColor: '#e8e8e8' }, color: '#333', display: 'flex', padding: '8px 0', alignItems: 'center', pl: '14px' }} component="p">
+                                    Ngày thêm mới nhất
+                                </Typography>
+                                <Typography sx={{ ":hover": { backgroundColor: '#e8e8e8' }, color: '#333', display: 'flex', padding: '8px 0', alignItems: 'center', pl: '14px' }} component="p">
+                                    Ngày thêm cũ nhất
+                                </Typography>
+                            </div>
+                        </div>
+                    </ClickAwayListener>)}
+                </div>
+            </header>
             {watch && <PlayingUserVideo callback={handleCloseWatch} data={dataVideo} />}
             <Grid container spacing={1}>
                 {videoUser.map((item, index) => (
                     <Grid item xs={6} md={2.4} sm={4} key={index}>
-                        <div className="img-user-video" onClick={() => handleOpenWatch(item.hideVideo)}>
+                        <div style={{ height: '118px' }} className="img-user-video" onClick={() => handleOpenWatch(item.hideVideo)}>
                             <img width="100%" height="100%" src={video} alt="Rose" className="img-founder" />
                         </div>
                         <div className="info" style={{ color: color }}>

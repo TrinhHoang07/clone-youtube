@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import './AddVideoForm.scss';
 import { bgThemeContext } from '../../App';
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getVideoUser } from '../../redux/actions';
 
