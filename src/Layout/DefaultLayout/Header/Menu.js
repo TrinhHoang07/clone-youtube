@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { Slide, IconButton, Button, List, ListItemButton, ListItemIcon, ListItemText, Divider, Typography, Box, ListSubheader, Stack, Fade } from '@mui/material'
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -574,4 +574,4 @@ function Menu({ open, close }) {
         </Fade>
     )
 }
-export default Menu;
+export default memo(Menu);

@@ -1,6 +1,7 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 function PlayingUserVideo({ callback, data }) {
+
 
     const videoRef = useRef();
     const handleTogglePlay = () => {
@@ -10,6 +11,9 @@ function PlayingUserVideo({ callback, data }) {
             videoRef.current.pause();
         }
     }
+    useEffect(() => {
+        videoRef.current.play();
+    }, []);
 
     return (
         <div className="playing-user-video" onClick={callback}>

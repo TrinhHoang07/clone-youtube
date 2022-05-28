@@ -10,7 +10,7 @@ function HeaderChannel() {
 
     const user = useSelector(state => state.dataUser);
     const theme = useContext(bgThemeContext);
-    const { color, handleOpenAddVideo } = theme;
+    const { color, handleOpenAddVideo, handleChangeSearchVideoUser } = theme;
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -53,7 +53,7 @@ function HeaderChannel() {
                             <IconButton>
                                 <SearchOutlinedIcon sx={{ color: color }} />
                             </IconButton>
-                            <Input className="input-search" sx={{ width: '200px', color: color }} placeholder="Tìm kiếm" />
+                            <Input onChange={(e) => handleChangeSearchVideoUser(e.target.value)} className="input-search" sx={{ width: '200px', color: color }} placeholder="Tìm kiếm" />
                         </Box>
                     </Box>
                 </div>

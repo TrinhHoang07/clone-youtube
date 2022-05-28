@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { ClickAwayListener, Divider, styled, List, ListItemButton, ListItemIcon, ListItemText, Switch, Zoom, Avatar } from "@mui/material";
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
@@ -242,4 +242,4 @@ function Profile({ open, close }) {
     )
 }
 
-export default Profile;
+export default memo(Profile);

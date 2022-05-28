@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, IconButton } from "@mui/material";
 import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -6,8 +6,14 @@ import './Library.scss';
 import { bgThemeContext } from '../../App';
 
 function Library() {
+
     const theme = useContext(bgThemeContext);
     const { color, bgColor } = theme;
+
+    useEffect(() => {
+        document.title = 'Thư viện - Youtube';
+    }, []);
+
     return (
         <div className="library" style={{ backgroundColor: bgColor }}>
             <div className="container">

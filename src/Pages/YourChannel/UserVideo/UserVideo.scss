@@ -13,7 +13,7 @@ $tablet-width: 1023px;
     }
 }
 
-.user-video {
+.user-video-play {
     padding: 0 64px;
     padding-bottom: 100px;
     padding-top: 16px;
@@ -63,7 +63,7 @@ $tablet-width: 1023px;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.35);
+        background-color: rgba(0, 0, 0, 0.5);
         display: flex;
         z-index: 1000;
 

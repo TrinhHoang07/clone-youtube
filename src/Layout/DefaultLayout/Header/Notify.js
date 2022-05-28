@@ -1,7 +1,7 @@
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { ClickAwayListener, Divider, Grow, IconButton } from '@mui/material';
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { bgThemeContext } from '../../../App';
 
 
@@ -40,4 +40,4 @@ function Notify({ open, close }) {
     );
 }
 
-export default Notify;
+export default memo(Notify);

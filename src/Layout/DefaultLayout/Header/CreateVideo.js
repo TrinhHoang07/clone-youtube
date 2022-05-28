@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { Grow, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import LiveTvSharpIcon from '@mui/icons-material/LiveTvSharp';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
@@ -44,4 +44,4 @@ function CreateVideo({ open, close }) {
         </ClickAwayListener>
     )
 }
-export default CreateVideo;
+export default memo(CreateVideo);

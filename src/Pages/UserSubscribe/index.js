@@ -1,5 +1,5 @@
 import { bgThemeContext } from '../../App';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Divider, Grid, Typography } from "@mui/material";
 import User from "./User";
 import './UserSubscribe.scss';
@@ -8,6 +8,10 @@ function UserSubscribe() {
 
     const theme = useContext(bgThemeContext);
     const { color, bgColor } = theme;
+
+    useEffect(() => {
+        document.title = 'Kênh đăng ký- Youtube';
+    }, []);
 
     return (
         <div className="usersubscribe" style={{ backgroundColor: bgColor }}>

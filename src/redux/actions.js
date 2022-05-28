@@ -32,3 +32,10 @@ export const getVideoUser = (payload) => {
         payload,
     };
 }
+
+export const deleteVideoUser = (payload) => {
+    return {
+        type: 'DELETE_VIDEO_USER',
+        payload,
+    };
+}

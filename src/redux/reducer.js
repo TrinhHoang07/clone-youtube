@@ -37,6 +37,11 @@ function reducer(state = initialState, action) {
                 ...state,
                 videoUser: [...state.videoUser, { ...action.payload }],
             }
+        case 'DELETE_VIDEO_USER':
+            return {
+                ...state,
+                videoUser: state.videoUser.filter((item, index) => index !== action.payload),
+            }
         default:
             return state;
     }

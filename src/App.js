@@ -3,14 +3,20 @@ import { Routes, Route } from 'react-router-dom';
 import { publicRoute, privateRoute, privateRouteSpecial, publicRouteSpecial } from './routes';
 import DefaultLayout from './Layout/DefaultLayout';
 import Layout from './Pages/YourChannel/Layout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteVideoUser } from './redux/actions';
 import { AddVideoForm } from './Pages';
 
 
 export const bgThemeContext = createContext();
 function App() {
 
+  console.log('app render');
+
   const isUser = useSelector(state => state.isUser);
+  const [searchVideoUser, setSearchVideoUser] = useState('');
+
+  const dispatch = useDispatch();
 
   const [bgColor, setBgColor] = useState('#f2f2f2');
   const [leftColor, setLeftColor] = useState('#fff');
@@ -27,6 +33,14 @@ function App() {
   const [isAddVideo, setIsAddVideo] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [checkedRadio, setCheckedRadio] = useState(0);
+
+  const handleDeleteVideo = (index) => {
+    dispatch(deleteVideoUser(index));
+  }
+
+  const handleChangeSearchVideoUser = (payload) => {
+    setSearchVideoUser(payload);
+  }
 
   const handleOpenAddVideo = () => {
     setIsAddVideo(true);
@@ -90,6 +104,7 @@ function App() {
     setColor(color === '#333' ? '#fff' : '#333');
   }
   const value = {
+    searchVideoUser,
     colorSkeleton,
     borderColor,
     checkedRadio,
@@ -104,6 +119,8 @@ function App() {
     checked,
     leftColor,
     inputColor,
+    handleDeleteVideo,
+    handleChangeSearchVideoUser,
     handleOpenAddVideo,
     handleCloseAddVideo,
     handleToggleColorSkeleton,

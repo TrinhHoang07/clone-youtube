@@ -1,5 +1,5 @@
 import { bgThemeContext } from '../../../App';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Typography } from "@mui/material";
 import './Homechannel.scss';
 import UserVideo from '../UserVideo';
@@ -8,9 +8,14 @@ import { useSelector } from 'react-redux';
 function HomeChannel() {
 
     const videoUser = useSelector(state => state.videoUser);
+    const dataUser = useSelector(state => state.dataUser);
 
     const theme = useContext(bgThemeContext);
     const { color, bgColor, handleOpenAddVideo } = theme;
+
+    useEffect(() => {
+        document.title = `${dataUser.displayName} - Youtube`;
+    }, []);
 
     return (
         <>

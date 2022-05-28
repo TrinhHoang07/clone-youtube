@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, IconButton } from "@mui/material";
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -9,6 +9,10 @@ function Subscribe() {
 
     const theme = useContext(bgThemeContext);
     const { color, bgColor } = theme;
+
+    useEffect(() => {
+        document.title = 'Kênh đăng ký - Youtube';
+    }, []);
 
     return (
         <div className="subscribe" style={{ backgroundColor: bgColor }}>

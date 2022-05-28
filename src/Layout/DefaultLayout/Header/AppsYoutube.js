@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { Divider, Grow, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LiveTvSharpIcon from '@mui/icons-material/LiveTvSharp';
@@ -72,4 +72,4 @@ function AppsYoutube({ open, close }) {
         </ClickAwayListener>
     )
 }
-export default AppsYoutube;
+export default memo(AppsYoutube);

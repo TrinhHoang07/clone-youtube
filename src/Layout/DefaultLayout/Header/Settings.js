@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { ClickAwayListener, Divider, styled, List, ListItemButton, ListItemIcon, ListItemText, Switch, Zoom } from "@mui/material";
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
@@ -173,4 +173,4 @@ function Settings({ open, close }) {
     )
 }
 
-export default Settings;
+export default memo(Settings);

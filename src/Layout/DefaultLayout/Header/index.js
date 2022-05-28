@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from 'react';
+import { useState, useContext, useRef, useEffect, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { IconButton, Tooltip, Button, tooltipClasses, Typography, ClickAwayListener, Avatar } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
@@ -94,16 +94,16 @@ function Header() {
         setIsResults(false);
     }
 
-    const handleClickAway = () => {
+    const handleClickAway = useCallback(() => {
         setIsResults(false);
-    }
+    }, []);
 
-    const handleToggleMenu = () => setOpenMenu(prev => !prev);
-    const handleToggleApps = () => setOpenApps(prev => !prev);
-    const handleToggleCreateVideo = () => setOpenCreate(prev => !prev);
-    const handleToggleNotify = () => setOpenNotify(prev => !prev);
-    const handleToggleSettings = () => setOpenSettings(prev => !prev);
-    const handleToggleProfile = () => setOpenProfile(prev => !prev);
+    const handleToggleMenu = useCallback(() => setOpenMenu(prev => !prev), []);
+    const handleToggleApps = useCallback(() => setOpenApps(prev => !prev), []);
+    const handleToggleCreateVideo = useCallback(() => setOpenCreate(prev => !prev), []);
+    const handleToggleNotify = useCallback(() => setOpenNotify(prev => !prev), []);
+    const handleToggleSettings = useCallback(() => setOpenSettings(prev => !prev), []);
+    const handleToggleProfile = useCallback(() => setOpenProfile(prev => !prev), []);
 
     const handleCloseSearch = () => {
         setTextSearch('');
@@ -111,25 +111,25 @@ function Header() {
         inputRef.current.focus();
     }
 
-    const handleCloseApps = () => {
+    const handleCloseApps = useCallback(() => {
         setOpenApps(false);
-    }
+    }, [])
 
-    const handleCloseCreate = () => {
+    const handleCloseCreate = useCallback(() => {
         setOpenCreate(false);
-    }
+    }, [])
 
-    const handleCloseNotify = () => {
+    const handleCloseNotify = useCallback(() => {
         setOpenNotify(false);
-    }
+    }, [])
 
-    const handleCloseProfile = () => {
+    const handleCloseProfile = useCallback(() => {
         setOpenProfile(false);
-    }
+    }, [])
 
-    const handleCloseSettings = () => {
+    const handleCloseSettings = useCallback(() => {
         setOpenSettings(false);
-    }
+    }, [])
 
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
@@ -271,4 +271,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default memo(Header);

@@ -24,6 +24,20 @@
 
         .addvideo-form-content {
             text-align: center;
+
+            .input-name-video {
+                border: none;
+                outline: none;
+                padding: 8px 0;
+                font-size: 14px;
+                padding-left: 12px;
+                border: 1px solid #d7d7d7;
+                border-radius: 2px;
+
+                &:focus-within {
+                    border: 1px solid #1c62b9;
+                }
+            }
         }
 
         .addvideo-form-footer {

@@ -1,4 +1,4 @@
-import { Button, ClickAwayListener, Grid, IconButton, Popover, Typography } from "@mui/material";
+import { Button, ClickAwayListener, Grid, IconButton, Typography } from "@mui/material";
 import video from '../../../videotiktok/myvideo.png';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -12,15 +12,16 @@ import PlayingUserVideo from './PlayingUserVideo';
 
 function UserVideo() {
 
-    const videoUser = useSelector(state => state.videoUser);
-    const dataUser = useSelector(state => state.dataUser);
+    const theme = useContext(bgThemeContext);
+    const { bgColor, color, searchVideoUser, handleDeleteVideo } = theme;
+    const [open, setOpen] = useState(null);
+    const [openOpt, setOpenOpt] = useState(false);
+
+    const videoUser = useSelector(state => state.videoUser.filter(item => item.nameVideoTitle.includes(searchVideoUser)));
     const [watch, setWatch] = useState(false);
     const [dataVideo, setDataVideo] = useState('');
 
-    const theme = useContext(bgThemeContext);
-    const { bgColor, color } = theme;
-    const [open, setOpen] = useState(null);
-    const [openOpt, setOpenOpt] = useState(false);
+    console.log(videoUser);
 
     const handleOpenOpt = () => {
         setOpenOpt(true);
@@ -46,7 +47,7 @@ function UserVideo() {
 
 
     return (
-        <div className="user-video" style={{ backgroundColor: bgColor }}>
+        <div className="user-video-play" style={{ backgroundColor: bgColor, height: '100%' }}>
             <header style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Typography component="h3" sx={{ color: color }}>
                     Video tải lên
@@ -79,7 +80,7 @@ function UserVideo() {
                         </div>
                         <div className="info" style={{ color: color }}>
                             <div className="wrapper-video-user">
-                                <div className="heading-name">{dataUser.displayName}</div>
+                                <div className="heading-name">{item.nameVideoTitle}</div>
                                 <p className="view-video">0 lượt xem</p>
                             </div>
                             <div className="option">
@@ -93,7 +94,7 @@ function UserVideo() {
                                 {open === item && (<ClickAwayListener onClickAway={handleClose}>
                                     <div className="children-option" style={{ backgroundColor: '#ffffff' }}>
                                         <div className="content-option" style={{ padding: '8px 0' }}>
-                                            <Typography sx={{ ":hover": { backgroundColor: '#e8e8e8' }, color: '#333', display: 'flex', padding: '8px 0', alignItems: 'center' }} component="p">
+                                            <Typography onClick={() => handleDeleteVideo(index)} sx={{ cursor: 'pointer', ":hover": { backgroundColor: '#e8e8e8' }, color: '#333', display: 'flex', padding: '8px 0', alignItems: 'center' }} component="p">
                                                 <DeleteIcon sx={{ ml: 1, mr: 1 }} /> Xóa
                                             </Typography>
                                             <Typography sx={{ ":hover": { backgroundColor: '#e8e8e8' }, color: '#333', display: 'flex', padding: '8px 0', alignItems: 'center' }} component="p">

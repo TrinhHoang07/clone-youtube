@@ -13,14 +13,15 @@ const Input = styled('input')({
 });
 
 function AddVideoForm() {
+    console.log('AddVideoForm render');
 
     const dispatch = useDispatch();
+    const [textTitleName, setTextTitleName] = useState('');
 
-    const [video, setVideo] = useState();
     const handleAddVideo = (e) => {
         const file = e.target.files[0];
         file.hideVideo = URL.createObjectURL(file);
-        setVideo(file);
+        file.nameVideoTitle = textTitleName;
         dispatch(getVideoUser(file));
         handleCloseAddVideo();
     }
@@ -57,6 +58,12 @@ function AddVideoForm() {
                         </IconButton>
                         <Typography sx={{ fontSize: 18, mb: 0.5, fontWeight: 400 }} component="h5">Tải video lên</Typography>
                         <Typography sx={{ fontSize: 14, mb: 3 }} component="p">Các video của bạn sẽ ở chế độ riêng tư cho đến khi bạn xuất bản.</Typography>
+                        <div style={{ marginBottom: '8px' }}>
+                            <label htmlFor="input-text-name">
+                                <Typography component="span" sx={{ fontSize: 14, cursor: 'pointer' }}> Name: </Typography>
+                                <input onChange={(e) => setTextTitleName(e.target.value)} className="input-name-video" type="text" id="input-text-name" placeholder="Nhập tiêu đề video..." />
+                            </label>
+                        </div>
                         <label htmlFor="contained-button-file">
                             <Input id="contained-button-file" onChange={handleAddVideo} type="file" />
                             <Button sx={{ borderRadius: '2px' }} variant="contained" component="span">

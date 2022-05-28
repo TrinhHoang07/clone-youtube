@@ -24,6 +24,10 @@ function Short() {
             })
     }, [])
 
+    useEffect(() => {
+        document.title = 'Short - Youtube';
+    }, []);
+
     const handleScrollingDown = () => {
         shortRef.current.scrollTo({
             behavior: 'smooth',

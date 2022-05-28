@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
@@ -155,4 +155,4 @@ function BarLeft() {
     )
 }
 
-export default BarLeft;
+export default memo(BarLeft);

@@ -1,5 +1,5 @@
 import { bgThemeContext } from '../../App';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
@@ -13,6 +13,10 @@ function UserLibrary() {
     const user = useSelector(state => state.dataUser);
     const theme = useContext(bgThemeContext);
     const { color, bgColor } = theme;
+
+    useEffect(() => {
+        document.title = 'Thư viện - Youtube';
+    }, []);
 
     return (
         <div className="userlibrary" style={{ backgroundColor: bgColor }}>
