@@ -4,6 +4,7 @@ import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import './Library.scss';
 import { bgThemeContext } from '../../App';
+import { Link } from "react-router-dom";
 
 function Library() {
 
@@ -23,7 +24,9 @@ function Library() {
                     </IconButton>
                     <h3 style={{ color: color }} className="heading">Thưởng thức các video yêu thích của bạn</h3>
                     <p style={{ color: color }} className="description">Đăng nhập để truy cập video bạn đã thích hoặc đã lưu</p>
-                    <Button href="/library" sx={{ border: '1px solid #255fd4', borderRadius: '2px', ":hover": { backgroundColor: 'unset', border: '1px solid #255fd4' } }} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>ĐĂNG NHẬP</Button>
+                    <Link to="/login" style={{ textDecoration: 'none' }}>
+                        <Button sx={{ border: '1px solid #255fd4', borderRadius: '2px', ":hover": { backgroundColor: 'unset', border: '1px solid #255fd4' } }} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>ĐĂNG NHẬP</Button>
+                    </Link>
                 </div>
             </div>
         </div >

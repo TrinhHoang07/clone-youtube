@@ -23,7 +23,9 @@ function History() {
                     </IconButton>
                     <h3 style={{ color: color }} className="heading">Theo dõi nội dung mà bạn xem</h3>
                     <p style={{ color: color }} className="description">Bạn không thể xem được nhật ký xem khi đã đăng xuất. <a href="https://google.com/" style={{ textDecoration: 'none', color: '#106cd7' }}>Tìm hiểu thêm</a></p>
-                    <Button sx={{ border: '1px solid #255fd4', borderRadius: '2px', ":hover": { backgroundColor: 'unset', border: '1px solid #255fd4' } }} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>ĐĂNG NHẬP</Button>
+                    <Link to="/login" style={{ textDecoration: 'none' }}>
+                        <Button sx={{ border: '1px solid #255fd4', borderRadius: '2px', ":hover": { backgroundColor: 'unset', border: '1px solid #255fd4' } }} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>ĐĂNG NHẬP</Button>
+                    </Link>
                 </div>
                 <div className="content-setting" style={{ backgroundColor: historyColor }}>
                     <div className="des-setting">

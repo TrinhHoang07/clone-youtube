@@ -4,6 +4,7 @@ import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import './Subscribe.scss';
 import { bgThemeContext } from '../../App';
+import { Link } from "react-router-dom";
 
 function Subscribe() {
 
@@ -23,7 +24,9 @@ function Subscribe() {
                     </IconButton>
                     <h3 style={{ color: color }} className="heading">Đừng bỏ lỡ video mới</h3>
                     <p style={{ color: color }} className="description">Đăng nhập để xem cập nhật từ các kênh YouTube yêu thích của bạn</p>
-                    <Button href="/subscriptions" sx={{ border: '1px solid #255fd4', borderRadius: '2px', ":hover": { backgroundColor: 'unset', border: '1px solid #255fd4' } }} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>ĐĂNG NHẬP</Button>
+                    <Link to="/login" style={{ textDecoration: "none" }}>
+                        <Button sx={{ border: '1px solid #255fd4', borderRadius: '2px', ":hover": { backgroundColor: 'unset', border: '1px solid #255fd4' } }} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>ĐĂNG NHẬP</Button>
+                    </Link>
                 </div>
             </div>
         </div >

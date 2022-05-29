@@ -216,10 +216,10 @@ function Menu({ open, close }) {
                                                 />
                                             </ListItemButton>
                                         </Link>) : (<></>)}
-                                        {isUser && <Link to="/" style={{ textDecoration: 'none' }}>
+                                        {isUser && <Link to="/yourchannel/featured" style={{ textDecoration: 'none' }}>
                                             <ListItemButton
-                                                selected={selectedIndex === 2}
-                                                onClick={(event) => closeMenu(event, 2)}
+                                                selected={selectedIndex === 18}
+                                                onClick={(event) => closeMenu(event, 18)}
                                                 sx={{ ":hover": { backgroundColor: colorHover }, color: color }}
                                             >
                                                 <ListItemIcon>
@@ -228,15 +228,15 @@ function Menu({ open, close }) {
                                                 <ListItemText
                                                     primary="Video của bạn"
                                                     primaryTypographyProps={{
-                                                        fontWeight: selectedIndex === 2 && 'bold'
+                                                        fontWeight: selectedIndex === 18 && 'bold'
                                                     }}
                                                 />
                                             </ListItemButton>
                                         </Link>}
                                         {isUser && <Link to="/" style={{ textDecoration: 'none' }}>
                                             <ListItemButton
-                                                selected={selectedIndex === 2}
-                                                onClick={(event) => closeMenu(event, 2)}
+                                                selected={selectedIndex === 19}
+                                                onClick={(event) => closeMenu(event, 19)}
                                                 sx={{ ":hover": { backgroundColor: colorHover }, color: color }}
                                             >
                                                 <ListItemIcon>
@@ -245,15 +245,15 @@ function Menu({ open, close }) {
                                                 <ListItemText
                                                     primary="Xem sau"
                                                     primaryTypographyProps={{
-                                                        fontWeight: selectedIndex === 2 && 'bold'
+                                                        fontWeight: selectedIndex === 19 && 'bold'
                                                     }}
                                                 />
                                             </ListItemButton>
                                         </Link>}
                                         {isUser && <Link to="/" style={{ textDecoration: 'none' }}>
                                             <ListItemButton
-                                                selected={selectedIndex === 2}
-                                                onClick={(event) => closeMenu(event, 2)}
+                                                selected={selectedIndex === 20}
+                                                onClick={(event) => closeMenu(event, 20)}
                                                 sx={{ ":hover": { backgroundColor: colorHover }, color: color }}
                                             >
                                                 <ListItemIcon>
@@ -262,7 +262,7 @@ function Menu({ open, close }) {
                                                 <ListItemText
                                                     primary="Video đã thích"
                                                     primaryTypographyProps={{
-                                                        fontWeight: selectedIndex === 2 && 'bold'
+                                                        fontWeight: selectedIndex === 20 && 'bold'
                                                     }}
                                                 />
                                             </ListItemButton>

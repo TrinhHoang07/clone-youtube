@@ -16,7 +16,7 @@ function HistoryComunity() {
         <div className="history-comunity" style={{ backgroundColor: bgColor }}>
             <div className="container">
                 <div className="content-history-comunity">
-                    <Link to="" className="link-comunity">Đăng nhập </Link>
+                    <Link to="/login" className="link-comunity">Đăng nhập </Link>
                     <span style={{ color: color }}>để xem Cộng đồng lịch sử của bạn</span>
                 </div>
                 <div className="content-setting" style={{ backgroundColor: historyColor }}>
