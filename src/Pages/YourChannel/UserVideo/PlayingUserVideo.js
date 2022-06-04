@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 
 function PlayingUserVideo({ callback, data }) {
 
@@ -24,4 +24,4 @@ function PlayingUserVideo({ callback, data }) {
     );
 }
 
-export default PlayingUserVideo;
+export default memo(PlayingUserVideo);

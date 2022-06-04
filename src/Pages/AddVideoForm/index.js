@@ -13,7 +13,6 @@ const Input = styled('input')({
 });
 
 function AddVideoForm() {
-    console.log('AddVideoForm render');
 
     const dispatch = useDispatch();
     const [textTitleName, setTextTitleName] = useState('');
@@ -25,7 +24,6 @@ function AddVideoForm() {
         dispatch(getVideoUser(file));
         handleCloseAddVideo();
     }
-
     // useEffect(() => {
     //     return () => {
     //         video && URL.revokeObjectURL(video.hideVideo);
@@ -52,7 +50,7 @@ function AddVideoForm() {
                             </IconButton>
                         </Box>
                     </header>
-                    <div className="addvideo-form-content">
+                    <form className="addvideo-form-content">
                         <IconButton sx={{ backgroundColor: '#e8e8e8', padding: 3, mt: 8, mb: 2, ":hover": { backgroundColor: '#e8e8e8' } }}>
                             <FileUploadOutlinedIcon sx={{ fontSize: 100 }} />
                         </IconButton>
@@ -70,7 +68,7 @@ function AddVideoForm() {
                                 Chọn tệp
                             </Button>
                         </label>
-                    </div>
+                    </form>
                     <footer className="addvideo-form-footer">
                         <Typography sx={{ fontSize: 12 }} component="p">
                             Khi gửi video lên YouTube, bạn xác nhận rằng bạn đồng ý với

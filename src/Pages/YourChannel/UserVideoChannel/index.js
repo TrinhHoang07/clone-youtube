@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FeedbackOutlinedIcon from '@mui/icons-material/FeedbackOutlined';
 import SortIcon from '@mui/icons-material/Sort';
 import './UserVideo.scss';
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback, memo } from "react";
 import { bgThemeContext } from '../../../App';
 import { useSelector } from "react-redux";
 import PlayingUserVideo from './PlayingUserVideo';
@@ -41,9 +41,9 @@ function UserVideo() {
         setDataVideo(videoUser);
         setWatch(true);
     }
-    const handleCloseWatch = () => {
+    const handleCloseWatch = useCallback(() => {
         setWatch(false);
-    }
+    })
 
 
     return (
@@ -112,4 +112,4 @@ function UserVideo() {
     )
 }
 
-export default UserVideo;
+export default memo(UserVideo);
