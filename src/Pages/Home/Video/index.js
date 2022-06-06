@@ -10,6 +10,7 @@ import { searchVideo } from '../../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
 
 function Video() {
+
     const dispatch = useDispatch()
     const dataVideo = useSelector(state => state.data);
     const theme = useContext(bgThemeContext);
@@ -18,7 +19,6 @@ function Video() {
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
 
     useEffect(() => {
         console.log("call api");

@@ -13,8 +13,9 @@ import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlin
 import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import { bgThemeContext } from '../../../App';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logOut } from '../../../redux/actions';
 
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -66,10 +67,17 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 function Profile({ open, close }) {
 
+    const dispatch = useDispatch();
     const user = useSelector(state => state.dataUser);
 
     const bgTheme = useContext(bgThemeContext);
     const { color, leftColor, colorHover, checked, handleToggleColorSkeleton, handleToggleBorderColor, handleToggleHistoryColor, handleToggleActionColor, handleToggleShortColor, handleToggleColorContentHeader, handleSetColorHover, handleToggleInputColor, handleToggleLeftColor, handleToggleColor, handleChecked, handleToggleBgColor } = bgTheme;
+
+
+    const handleLogOut = () => {
+        dispatch(logOut());
+        close();
+    }
 
     const handleChange = () => {
         handleToggleBgColor();
@@ -140,7 +148,7 @@ function Profile({ open, close }) {
                                 primary="Chuyển đổi tài khoản"
                             />
                         </ListItemButton>
-                        <ListItemButton sx={{ ":hover": { backgroundColor: colorHover }, padding: '6px 16px', color: color }}>
+                        <ListItemButton onClick={handleLogOut} sx={{ ":hover": { backgroundColor: colorHover }, padding: '6px 16px', color: color }}>
                             <ListItemIcon>
                                 <ExitToAppOutlinedIcon sx={{ fontSize: 26, color: color }} />
                             </ListItemIcon>

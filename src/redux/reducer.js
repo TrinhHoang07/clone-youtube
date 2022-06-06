@@ -42,6 +42,12 @@ function reducer(state = initialState, action) {
                 ...state,
                 videoUser: state.videoUser.filter((item, index) => index !== action.payload),
             }
+        case 'LOG_OUT':
+            console.log('log out');
+            return {
+                ...state,
+                isUser: false,
+            }
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import Header from './Header';
 import BarLeft from './BarLeft';
 import './DefaultLayout.scss';
 function DefaultLayout({ children }) {
+
     return (
         <div className="default">
             <Header />

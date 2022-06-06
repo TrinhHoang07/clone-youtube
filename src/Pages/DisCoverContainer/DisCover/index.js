@@ -121,7 +121,7 @@ function DisCover() {
                                         height="138px"
                                         sx={{ width: '246px' }}
                                     />
-                                    <CardContent sx={{ padding: 0, ":last-child": { paddingBottom: 0 }, ml: 2 }}>
+                                    <CardContent sx={{ flex: 1, padding: 0, ":last-child": { paddingBottom: 0 }, ml: 2 }}>
                                         <Box className="heading-video-media-discover" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                             <Box>
                                                 <Typography component="p" sx={{ fontWeight: 500, fontSize: 18 }}>

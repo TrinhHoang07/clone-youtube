@@ -39,3 +39,9 @@ export const deleteVideoUser = (payload) => {
         payload,
     };
 }
+
+export const logOut = () => {
+    return {
+        type: 'LOG_OUT',
+    };
+}

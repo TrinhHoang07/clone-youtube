@@ -16,6 +16,24 @@ $tablet-width: 1023px;
 .discover-container {
     padding-top: 55px;
     padding-left: 74px;
+    height: 100vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 16px;
+        height: 56px;
+        border: 4px solid #f2f2f2;
+        background-clip: content-box;
+        background-color: #f2f2f2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        height: 56px;
+        background: #606060;
+        border: 4px solid #f2f2f2;
+        background-clip: content-box;
+    }
 
     @include mobile {
         padding-left: 0;
