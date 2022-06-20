@@ -15,7 +15,7 @@ function Video() {
     const dataVideo = useSelector(state => state.data);
     const theme = useContext(bgThemeContext);
     const { bgColor, color } = theme;
-    const [key, setKey] = useState('');
+    const [key_vd, setKey_vd] = useState('');
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -32,8 +32,8 @@ function Video() {
             });
     }, [])
 
-    const handleTogglePlayingVideo = (key) => {
-        setKey(key);
+    const handleTogglePlayingVideo = (key_vd) => {
+        setKey_vd(key_vd);
         setOpen(true);
     }
 
@@ -43,7 +43,7 @@ function Video() {
 
     return (
         <Grid className="video" container spacing={2} sx={{ padding: '0 16px', backgroundColor: bgColor, paddingTop: '70px' }}>
-            {open && <VideoPlaying callback={handleToggleClose} data={key} />}
+            {open && <VideoPlaying callback={handleToggleClose} data={key_vd} />}
             {loading ? arr.map(index => (<HomeSkeleton key={index} />)) : (dataVideo.map(video => (
                 <Grid key={video.id} item xs={12} className="wrapper-video" sm={4} md={3} sx={{ backgroundColor: bgColor }}>
                     <Link to="" style={{ textDecoration: 'none' }}
@@ -56,6 +56,7 @@ function Video() {
                                 alt="Description"
                                 image={video.thumbnail}
                                 height="154"
+                                sx={{ objectFit: 'cover' }}
                             />
                             <CardHeader
                                 className="video-header"
