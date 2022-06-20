@@ -11,10 +11,9 @@ import { AddVideoForm } from './Pages';
 export const bgThemeContext = createContext();
 function App() {
 
-  console.log('app render');
-
   const isUser = useSelector(state => state.isUser);
   const [searchVideoUser, setSearchVideoUser] = useState('');
+  console.log('app render', isUser);
 
   const dispatch = useDispatch();
 
@@ -138,6 +137,7 @@ function App() {
     handleToggleLeftColor,
     handleToggleInputColor
   }
+
   return (
 
     <bgThemeContext.Provider value={value}>

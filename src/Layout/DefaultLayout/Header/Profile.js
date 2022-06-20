@@ -79,6 +79,7 @@ function Profile({ open, close }) {
         close();
     }
 
+
     const handleChange = () => {
         handleToggleBgColor();
         handleChecked();
@@ -148,15 +149,17 @@ function Profile({ open, close }) {
                                 primary="Chuyển đổi tài khoản"
                             />
                         </ListItemButton>
-                        <ListItemButton onClick={handleLogOut} sx={{ ":hover": { backgroundColor: colorHover }, padding: '6px 16px', color: color }}>
-                            <ListItemIcon>
-                                <ExitToAppOutlinedIcon sx={{ fontSize: 26, color: color }} />
-                            </ListItemIcon>
-                            <ListItemText
-                                className="app-text"
-                                primary="Đăng xuất"
-                            />
-                        </ListItemButton>
+                        <Link style={{ textDecoration: 'none' }} to="/" onClick={handleLogOut}>
+                            <ListItemButton sx={{ ":hover": { backgroundColor: colorHover }, padding: '6px 16px', color: color }}>
+                                <ListItemIcon>
+                                    <ExitToAppOutlinedIcon sx={{ fontSize: 26, color: color }} />
+                                </ListItemIcon>
+                                <ListItemText
+                                    className="app-text"
+                                    primary="Đăng xuất"
+                                />
+                            </ListItemButton>
+                        </Link>
                     </List>
                     <Divider />
                     <List>
