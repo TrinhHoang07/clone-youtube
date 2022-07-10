@@ -2,7 +2,6 @@ import { auth, googleProvider } from './Service';
 import { useDispatch } from "react-redux";
 import { getDataUser } from '../redux/actions';
 import './Login.scss';
-import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
@@ -12,22 +11,18 @@ function Login() {
     const dispatch = useDispatch();
     const handleLogin = () => {
         auth.signInWithPopup(googleProvider).then((res) => {
-            //
-        }).catch((error) => {
-            console.log(error.message)
-        })
-    }
-    useEffect(() => {
-        auth.onAuthStateChanged(async (user) => {
+            const user = res.user;
             const { displayName, email, metadata } = user;
             dispatch(getDataUser({
                 displayName,
                 email,
                 metadata,
             }))
-            user && navigate('/')
+            user && navigate('/');
+        }).catch((error) => {
+            console.log(error.message)
         })
-    }, [])
+    }
 
     return (
         <div className="login-box" style={{ height: '100vh', display: 'flex' }}>
